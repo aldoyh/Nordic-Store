@@ -10,7 +10,7 @@ class MarketplaceController extends Controller
     public function index(): View
     {
         $shops = Shop::where('is_active', true)
-            ->with('products')
+            ->withCount('products')
             ->paginate(12);
 
         return view('marketplace.index', compact('shops'));

@@ -3,13 +3,13 @@
 @section('title', $shop->shop_name . ' - Nordic Store')
 
 @section('content')
-<div class="mb-8 flex items-center justify-between">
+<div class="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
     <div>
         <h1 class="text-4xl font-bold mb-2">{{ $shop->shop_name }}</h1>
         <p class="text-gray-600">@{{ $shop->instagram_username }} • {{ $shop->products_count ?? 0 }} products</p>
     </div>
     @if ($cart && $cart->items()->count() > 0)
-        <a href="{{ route('cart.show', $shop) }}" class="inline-block px-6 py-3 bg-gray-900 text-white rounded hover:bg-gray-800">
+        <a href="{{ route('cart.show', $shop) }}" class="w-full md:w-auto text-center px-6 py-3 bg-gray-900 text-white rounded hover:bg-gray-800 font-bold">
             🛒 Cart ({{ $cart->items_count ?? 0 }})
         </a>
     @endif
